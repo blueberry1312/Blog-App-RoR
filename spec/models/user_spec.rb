@@ -38,4 +38,23 @@ RSpec.describe User, type: :model do
       expect(@user).to_not be_valid
     end
   end
+
+  describe 'methods' do
+    it 'should return the most recent posts' do
+      @user.save
+
+      Post.create(author_id: @user.id, title: 'First Post', text: 'This is my first post')
+      post2 = Post.create(author_id: @user.id, title: 'Second Post', text: 'This is my second post')
+      post3 = Post.create(author_id: @user.id, title: 'Third Post', text: 'This is my third post')
+      post4 = Post.create(author_id: @user.id, title: 'Fourth Post', text: 'This is my fourth post')
+
+      expect(@user.recent_posts).to eq([post4, post3, post2])
+    end
+
+    it 'should return an empty array if the user has no posts' do
+      user2 = User.create(name: 'Jane')
+
+      expect(user2.recent_posts).to eq([])
+    end
+  end
 end
