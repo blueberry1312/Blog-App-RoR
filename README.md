@@ -93,6 +93,8 @@ Install this project with:
 ```sh
   bundle install
   rails db:create
+  rails db:migrate
+  rails db:seed
 ```
 
 ### Usage
