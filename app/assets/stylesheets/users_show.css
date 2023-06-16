@@ -52,9 +52,22 @@
 }
 
 .all-posts-button {
-  align-self: center;
-  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
   width: fit-content;
+  padding: 0 1rem;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: black;
+  transition: background-color 0.3s ease;
+}
+
+.all-posts-button:hover {
+  background-color: lightgray;
 }
 
 .no-posts {
