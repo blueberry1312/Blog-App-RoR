@@ -14,10 +14,6 @@ RSpec.describe 'Posts', type: :request do
     it 'renders the index template' do
       expect(response).to render_template(:index)
     end
-
-    it 'renders the correct content' do
-      expect(response.body).to include('Here is a list of Posts for a given User')
-    end
   end
   describe 'GET /show' do
     before(:each) do
@@ -32,10 +28,6 @@ RSpec.describe 'Posts', type: :request do
 
     it 'renders the show template' do
       expect(response).to render_template(:show)
-    end
-
-    it 'renders the correct content' do
-      expect(response.body).to include('Showing a specific Post of the User')
     end
   end
 end

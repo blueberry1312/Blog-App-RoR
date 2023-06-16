@@ -13,6 +13,10 @@ class Post < ApplicationRecord
     Comment.where(post_id: id).order(created_at: :desc).limit(5)
   end
 
+  def author
+    User.find(author_id)
+  end
+
   private
 
   def update_post_counter

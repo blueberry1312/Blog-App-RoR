@@ -1,0 +1,81 @@
+.user-show {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.user-container {
+  flex-direction: row;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.user-bio {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 0.5rem;
+  width: 100%;
+  margin: 1rem;
+}
+
+.user-posts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  width: 100%;
+}
+
+.post-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 0.5rem;
+  width: 100%;
+}
+
+.post-interactions {
+  font-size: 1rem;
+  align-self: flex-end;
+  position: relative;
+  left: -10px;
+  top: 10px;
+}
+
+.all-posts-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: fit-content;
+  padding: 0 1rem;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: black;
+  transition: background-color 0.3s ease;
+}
+
+.all-posts-button:hover {
+  background-color: lightgray;
+}
+
+.no-posts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+}

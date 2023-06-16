@@ -11,11 +11,6 @@ RSpec.describe 'UsersController', type: :request do
       get '/users'
       expect(response).to have_http_status(:success)
     end
-
-    it 'includes the correct placeholder text in the response body' do
-      get '/users'
-      expect(response.body).to include('Here is a list of users')
-    end
   end
 
   describe 'GET show' do
@@ -29,12 +24,6 @@ RSpec.describe 'UsersController', type: :request do
       user = User.create(name: 'Test', photo: 'https://test.jpg', bio: 'test.')
       get "/users/#{user.id}"
       expect(response).to have_http_status(:success)
-    end
-
-    it 'includes the correct placeholder text in the response body' do
-      user = User.create(name: 'Test', photo: 'https://test.jpg', bio: 'test.')
-      get "/users/#{user.id}"
-      expect(response.body).to include('Showing a specific User')
     end
   end
 end
