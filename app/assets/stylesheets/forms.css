@@ -1,0 +1,62 @@
+.post-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  width: 30rem;
+  margin: 0 auto;
+}
+
+.post-form .form-title {
+  color: #000;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.post-form .form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  width: 100%;
+}
+
+.post-form .form-group .input {
+  font-size: 0.9rem;
+  width: 50%;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid #929292;
+  outline: none;
+}
+
+.post-form .form-group .title-input {
+  height: 2rem;
+  width: 30rem;
+}
+
+.post-form .form-group .text-input {
+  height: 5rem;
+  width: 30rem;
+}
+
+.post-form input[type='submit'] {
+  padding: 1rem;
+  border-radius: 0.25rem;
+  width: 50%;
+  text-align: center;
+  font-size: 1rem;
+  background-color: #fff;
+  border: 1px solid #000;
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.post-form input[type='submit']:hover {
+  background: #000;
+  color: #fff;
+}
