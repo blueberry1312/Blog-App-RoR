@@ -12,7 +12,7 @@
 
     <%= link_to 'Create new post', new_user_post_path, class: 'create-post' %>
     <div class='user-posts'>
-        <% @posts.each do |post| %>
+        <% @posts.includes(:comments).each do |post| %>
             <div class='post-container'>
                 <div class='title-and-link'>
                     <h3><%= post.title %></h3>
@@ -35,18 +35,12 @@
                 </div>
             </div>
             <div class='comments-container'>
-                <% if post.recent_comments.any? %>
-                    <% post.recent_comments.each do |comment| %>
+                    <% post.comments.each do |comment| %>
                         <div class='comment-container'>
                         <h4><%= comment.author.name %>:&nbsp;</h4>
                         <p><%= comment.text %></p>
                         </div>
                     <% end %>
-                <% else %>
-                    <div class='no-comments'>
-                        <p>This post has no comments.</p>
-                    </div>
-                <% end %>
             </div>
         <% end %>
     </div>
