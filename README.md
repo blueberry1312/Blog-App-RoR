@@ -122,6 +122,18 @@ To run tests, run the following command:
 - Twitter: [@nestorsitooo](https://twitter.com/nestorsitooo)
 - LinkedIn: [Nestor Oro](https://www.linkedin.com/in/nestor-oro/)
 
+👤 **Dico Diaz Dussan**
+
+- GitHub: [@dicodiaz](https://github.com/dicodiaz)
+- LinkedIn: [Dico Diaz Dussan](https://www.linkedin.com/in/dico-diaz-dussan/)
+- Portfolio: [portfolio.dicodiaz.com.co](https://portfolio.dicodiaz.com.co)
+
+👤 **Giancarlo Dumani**
+
+- GitHub: [gdumani](https://github.com/gdumani)
+- Twitter: [gdumani](https://twitter.com/gdumani1)
+- LinkedIn: [Gaincarlo Dumani](https://www.linkedin.com/in/gdumani/)
+
 <p align="right"><a href="#readme-top">Back to top</a></p>
 
 ## 🔭 Future Features <a name="future-features"></a>
