@@ -12,7 +12,7 @@
 
     <%= link_to 'Create new post', new_user_post_path, class: 'create-post' %>
     <div class='user-posts'>
-        <% @posts.includes(:comments).each do |post| %>
+        <% @posts.each do |post| %>
             <div class='post-container'>
                 <div class='title-and-link'>
                     <h3><%= post.title %></h3>
@@ -43,5 +43,8 @@
                     <% end %>
             </div>
         <% end %>
+    </div>
+    <div class='pagination'>
+        <%= link_to 'Pagination', user_posts_path(@user.id), class: 'load-more-button' %>
     </div>
 </section>

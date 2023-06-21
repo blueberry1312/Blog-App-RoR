@@ -53,3 +53,21 @@
   margin-top: 1rem;
   margin-left: 0.1rem;
 }
+
+.pagination {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.load-more-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.load-more-button:hover {
+  background-color: #0056b3;
+}
