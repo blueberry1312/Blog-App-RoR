@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
   def index
     @user = User.find(params[:user_id])
     @posts = Post.includes(:comments).where(author_id: @user.id).order(created_at: :desc)
@@ -12,6 +13,7 @@ class PostsController < ApplicationController
     rescue StandardError
       @post = nil
     end
+    session[:return_to] ||= request.referer
   end
 
   def new
@@ -28,6 +30,14 @@ class PostsController < ApplicationController
       flash[:alert] = 'Sorry, something went wrong!'
       render :new
     end
+  end
+
+  def destroy
+    post = Post.find(params[:id])
+    post.comments.each(&:destroy)
+    post.likes.each(&:destroy)
+    post.destroy
+    redirect_to user_posts_path(params[:user_id])
   end
 
   private

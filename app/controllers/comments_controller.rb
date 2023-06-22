@@ -15,6 +15,11 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    Comment.destroy(params[:id])
+    redirect_to session.delete(:return_to)
+  end
+
   private
 
   def comment_params

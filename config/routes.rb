@@ -6,11 +6,12 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root 'users#index'
-  resources :users, only: [:index, :show] do 
-    resources :posts do 
-      resources :comments, only: [:new, :create]
-      resources :likes, only: [:new, :create]
+  resources :users, only: %i[index show] do
+    resources :posts do
+      resources :comments, only: %i[new create]
+      resources :likes, only: %i[new create]
     end
   end
+  resources :comments, only: [:destroy]
   post '/send_email_notification', to: 'notifications#send_email_notification'
 end
