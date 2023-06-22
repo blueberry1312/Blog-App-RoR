@@ -29,8 +29,11 @@
                 <% if @post.comments.any? %>
                     <% @post.comments.each do |comment| %>
                         <div class='comment-container'>
-                        <h4><%= comment.author.name %>:&nbsp;</h4>
-                        <p><%= comment.text %></p>
+                            <h4><%= comment.author.name %>:&nbsp;</h4>
+                            <p><%= comment.text %></p>
+                            <% if can? :destroy, comment %>
+                                <% link_to 'Delete comment', comment_path(comment), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
+                            <% end %>
                         </div>
                     <% end %>
                 <% else %>
