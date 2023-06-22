@@ -32,6 +32,9 @@
                     <h3><%= post.title %></h3>
                     <p><%= post.text %></p>
                     <%= link_to 'View post', user_post_path(@user.id, post.id), class: 'interactive-links' %>
+                    <% if can? :destroy, post %>
+                        <%= link_to "Delete post", user_post_path(@user.id, post.id), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
+                    <% end %>
                     <div class='post-interactions'>
                         <p>
                             Comments: <%= post.comments_counter %>,
