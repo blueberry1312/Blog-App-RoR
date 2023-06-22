@@ -12,4 +12,5 @@ Rails.application.routes.draw do
       resources :likes, only: [:new, :create]
     end
   end
+  post '/send_email_notification', to: 'notifications#send_email_notification'
 end

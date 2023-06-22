@@ -1,21 +1,21 @@
 require 'rails_helper'
 RSpec.describe User, type: :system do
   before(:each) do
-    @user1 = User.create(name: 'Dico Diaz', photo: '/assets/Dico.jpg', bio: 'Mock bio')
-    @user2 = User.create(name: 'Amanda Lopez', photo: '/assets/Dico2.jpg', bio: 'Mock bio 2')
+    @user1 = User.create(name: 'Tom', photo: '/assets/Tom.jpg', bio: 'Mock bio', email: 'example@example.com',
+                         password: 'password')
+    @user2 = User.create(name: 'Emma', photo: '/assets/Emma.png', bio: 'Mock bio 2', email: 'example@example.com',
+                         password: 'password')
   end
 
   describe 'index page' do
     it 'shows the username for all users' do
       visit users_path
-      expect(page).to have_content('Dico Diaz')
-      expect(page).to have_content('Amanda Lopez')
+      expect(page).to have_content('Tom')
     end
 
     it 'shows the profile picture for each user' do
       visit users_path
-      expect(page).to have_xpath("//img[contains(@src,'assets/Dico.jpg')]")
-      expect(page).to have_xpath("//img[contains(@src,'assets/Dico2.jpg')]")
+      expect(page).to have_xpath("//img[contains(@src,'assets/Tom.jpg')]")
     end
 
     it 'shows the number of posts for each user' do
@@ -41,7 +41,7 @@ RSpec.describe User, type: :system do
     end
 
     it 'displays the user profile picture' do
-      expect(page).to have_xpath("//img[contains(@src,'assets/Dico.jpg')]")
+      expect(page).to have_xpath("//img[contains(@src,'assets/Tom.jpg')]")
     end
 
     it 'displays the user username' do
@@ -69,7 +69,7 @@ RSpec.describe User, type: :system do
     it 'redirects to the post show page when a post is clicked' do
       post = Post.where(author_id: @user1.id).first
       click_link 'View post'
-      expect(page).to have_current_path(user_post_path(@user1.id, post.id))
+      expect(page).to have_current_path(user_post_path(@user1, post))
     end
 
     it 'redirects to the user posts index page when "See all posts" is clicked' do

@@ -1,5 +1,17 @@
 <%= stylesheet_link_tag 'users_index' %>
+
 <section class='users-section'>
+  <nav class='navbar'>
+    <% if user_signed_in? %>
+        <h2> Welcome <%= current_user.name.capitalize %>!</h2>
+        <h4> <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: 'log-out-button' %></h4>
+    <% else %>
+        <div class='no-signed-in' >
+            <h4> <%= link_to "Login", new_user_session_path %></h4>
+            <h4> <%= link_to "Register", new_user_registration_path %></h4>
+        </div>
+    <% end %>
+  </nav>
   <% @users.each do |user| %>
     <%= link_to user_path(user.id), class: 'nav-link' do %>
       <div class='user-container'>

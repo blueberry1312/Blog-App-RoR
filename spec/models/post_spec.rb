@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :model do
   before(:each) do
-    @user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.')
+    @user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.',
+                        email: 'example@example.com', password: 'password', password_confirmation: 'password')
   end
 
   describe 'initialize' do
@@ -80,12 +81,9 @@ RSpec.describe Post, type: :model do
     end
 
     it 'should update posts_counter of the user' do
-      user_posts_counter = @user.posts_counter
-      expect(user_posts_counter).to eq(0)
-
+      expect(@user.posts_counter).to be(0)
       @user.reload
-      user_posts_counter = @user.posts_counter
-      expect(user_posts_counter).to eq(1)
+      expect(@user.posts_counter).to be(1)
     end
   end
 end
