@@ -2,31 +2,32 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :system do
   before(:each) do
-    @user1 = User.create(name: 'Dico Diaz', photo: '/assets/Dico.jpg', bio: 'user bio')
+    @user1 = User.create(name: 'Tom', photo: '/assets/Tom.jpg', bio: 'user bio', email: 'example@example.com',
+                         password: 'password')
     @post = Post.create(author_id: @user1.id, title: 'post title', text: 'post body')
-    @comment = Comment.create(author_id: @user1.id, post: @post, text: 'comment body')
-    @comment2 = Comment.create(author_id: @user1.id, post: @post, text: 'comment body 2')
-    Like.create(author_id: @user1.id, post: @post)
+    @comment = Comment.create(author_id: @user1.id, post_id: @post.id, text: 'comment body')
+    @comment2 = Comment.create(author_id: @user1.id, post_id: @post.id, text: 'comment body 2')
+    Like.create(author_id: @user1.id, post_id: @post.id)
   end
 
   describe 'index page' do
     it "shows the user's profile picture" do
-      visit user_posts_path(@user1.id)
-      expect(page).to have_xpath("//img[contains(@src,'/assets/Dico.jpg')]")
+      visit user_posts_path(@user1)
+      expect(page).to have_xpath("//img[contains(@src,'/assets/Tom.jpg')]")
     end
 
     it "shows the user's username" do
-      visit user_posts_path(@user1.id)
+      visit user_posts_path(@user1)
       expect(page).to have_content(@user1.name)
     end
 
     it 'shows the number of posts the user has written' do
-      visit user_posts_path(@user1.id)
+      visit user_posts_path(@user1)
       expect(page).to have_content('Number of posts: 1')
     end
 
     it "shows a post's title" do
-      visit user_posts_path(@user1.id)
+      visit user_posts_path(@user1)
       expect(page).to have_content(@post.title)
     end
 
@@ -36,29 +37,29 @@ RSpec.describe Post, type: :system do
     end
 
     it 'shows the first comments on a post' do
-      visit user_posts_path(@user1.id)
+      visit user_posts_path(@user1)
       expect(page).to have_content(@comment.text)
     end
 
     it 'shows how many comments a post has' do
-      visit user_posts_path(@user1.id)
+      visit user_posts_path(@user1)
       expect(page).to have_content('Comments: 2')
     end
 
     it 'shows how many likes a post has' do
-      visit user_posts_path(@user1.id)
+      visit user_posts_path(@user1)
       expect(page).to have_content('Likes: 1')
     end
 
     it 'shows a pagination section if there are more posts than fit on the view' do
-      visit user_posts_path(@user1.id)
+      visit user_posts_path(@user1)
       expect(page).to have_selector('.pagination')
     end
 
     it "redirects to a post's show page when clicking on it" do
-      visit user_posts_path(@user1.id)
+      visit user_posts_path(@user1)
       click_link 'View post'
-      expect(page).to have_current_path(user_post_path(@user1.id, @post.id))
+      expect(page).to have_current_path(user_post_path(@user1, @post))
     end
   end
 

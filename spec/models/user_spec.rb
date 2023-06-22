@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   before(:each) do
     @user = User.new(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.',
-                     posts_counter: 0)
+                     posts_counter: 0, email: 'example@example.com', password: 'password',
+                     password_confirmation: 'password')
   end
 
   describe 'initialize' do
@@ -13,7 +14,8 @@ RSpec.describe User, type: :model do
 
     it 'should have the attributes' do
       expect(@user).to have_attributes(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-                                       bio: 'Teacher from Mexico.', posts_counter: 0)
+                                       bio: 'Teacher from Mexico.', posts_counter: 0, email: 'example@example.com',
+                                       password: 'password', password_confirmation: 'password')
     end
   end
 

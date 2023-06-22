@@ -4,6 +4,16 @@
 <%= stylesheet_link_tag 'posts_show' %>
 <% if @post %>
     <section class='post-section'>
+        <nav class='navbar'>
+        <% if user_signed_in? %>
+            <h2> Welcome <%= current_user.name.capitalize %>!</h2>
+            <h4> <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: 'log-out-button' %></h4>
+        <% else %>
+            <div class='no-signed-in' >
+                <h4> <%= link_to "Login", new_user_session_path %></h4>
+                <h4> <%= link_to "Register", new_user_registration_path %></h4>
+            </div>
+        <% end %>
         <div class='user-posts'>
             <div class='post-container'>
                 <h3>"<%= @post.title %>" by <%= @post.author.name %></h3>

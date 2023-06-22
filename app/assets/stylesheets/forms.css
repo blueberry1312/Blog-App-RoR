@@ -21,6 +21,7 @@
   align-items: flex-start;
   gap: 1rem;
   width: 100%;
+  margin-bottom: 30px;
 }
 
 .post-form .form-group .input {
@@ -59,4 +60,14 @@
 .post-form input[type='submit']:hover {
   background: #000;
   color: #fff;
+}
+
+.new_user {
+  width: 165%;
+  position: relative;
+  left: 197px;
+}
+
+.actions {
+  width: 105%;
 }

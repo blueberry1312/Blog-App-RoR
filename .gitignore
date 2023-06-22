@@ -33,3 +33,4 @@ node_modules/
 /config/master.key
 
 application.yml
+sendgrid.env
