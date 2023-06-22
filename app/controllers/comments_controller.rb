@@ -17,6 +17,7 @@ class CommentsController < ApplicationController
 
   def destroy
     Comment.destroy(params[:id])
+    redirect_to session.delete(:return_to)
   end
 
   private

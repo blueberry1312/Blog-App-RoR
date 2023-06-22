@@ -13,6 +13,7 @@ class PostsController < ApplicationController
     rescue StandardError
       @post = nil
     end
+    session[:return_to] ||= request.referer
   end
 
   def new
